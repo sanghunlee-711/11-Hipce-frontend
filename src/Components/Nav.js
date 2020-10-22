@@ -45,7 +45,6 @@ class Nav extends Component {
           navReduced: false,
         });
       }
-      
     } else if (pathname !== "/" || pathname !== "/main") {
       this.setState({
         navInMain: false,
@@ -62,7 +61,6 @@ class Nav extends Component {
   };
 
   render() {
-    console.log(window.scrollY)
     const { navReduced, navInMain } = this.state;
     return (
       <div

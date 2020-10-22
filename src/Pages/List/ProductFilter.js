@@ -27,11 +27,16 @@ class ProductFilter extends Component {
 
   palleteButtonKeep = (e, index) => {
     e.preventDefault();
+
+    //color button
     let newColors = [...this.state.colors];
     newColors[index].active = !newColors[index].active;
+
+    // color array when pop up button is clicked
     let checkArr = this.state.colors.map((el) => el.active);
     let selctingOne = newColors.filter((el) => el.active && el.name);
     let createURL = selctingOne.map((el) => el.name);
+
     this.setState({ colors: newColors }, () => {
       if (!checkArr.filter((el) => el === true).includes(true)) {
         this.setState({ filterdColor: "hidden" });
@@ -76,6 +81,7 @@ class ProductFilter extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.success) {
+          console.log("it's sent");
         }
       });
   };
@@ -83,13 +89,14 @@ class ProductFilter extends Component {
   render() {
     const {
       state: { palleteDisplay, colors, filterdColor },
+      props: { nameInfo },
       palleteButtonKeep,
       palleteClear,
     } = this;
     return (
       <div className="productFilter">
         <div className="productFilterName">
-          <h2>here</h2>
+          <h2>{nameInfo?.charAt(0).toUpperCase() + nameInfo?.slice(1)}</h2>
           <span
             onClick={() =>
               this.setState({ palleteDisplay: !palleteDisplay }, () =>

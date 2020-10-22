@@ -7,20 +7,21 @@ import "../../Styles/reset.scss";
 
 export default class About extends Component {
   state = {
-    alpha: [],
+    AboutData: {},
   };
 
   componentDidMount() {
-    fetch(`http://10.58.2.217:8000/products/${this.props.id}`)
+    fetch(`/data/productMockdata.json`)
       .then((res) => res.json())
-      .then((res) => this.setState({ alpha: res }));
+      .then((res) => this.setState({ AboutData: res.aboutData }));
   }
 
   render() {
+    const { AboutData } = this.state;
     return (
       <div className="About">
         <Nav />
-        <span className="aboutTitle"> About </span>
+        <span className="aboutTitle">About</span>
         <div className="sampleVideo">
           <video muted="true" autoPlay="true" loop="true">
             <source
@@ -30,7 +31,7 @@ export default class About extends Component {
           </video>
         </div>
         <section className="aboutExplanation">
-          <img src="https://hince.co.kr/assets/images/hince-brand-logo.png" />
+          <img alt="ProductPicture" src={AboutData.product_picture} />
           <div>
             <p className="explanationKorean">
               힌스는 밀도 있고 풍부한 컬러를 통해 당신의 고유한 분위기를 쌓아
@@ -49,27 +50,12 @@ export default class About extends Component {
         </section>
         <section className="explanationTheme">
           <div className="themeImageWrapper">
-            <div>
-              <img
-                alt="moodKeywordImg"
-                src="https://hince.co.kr/images/about/brand-slogan-01-mood.jpg"
-              />
-              <span>MOOD</span>
-            </div>
-            <div>
-              <img
-                alt="moodKeywordImg"
-                src="https://hince.co.kr/images/about/brand-slogan-02-tone.jpg"
-              />
-              <span>TONE</span>
-            </div>
-            <div>
-              <img
-                alt="moodKeywordImg"
-                src="https://hince.co.kr/images/about/brand-slogan-03-attitude.jpg"
-              />
-              <span>ATTITUDE</span>
-            </div>
+            {AboutData.explanation_Image?.map((el, index) => (
+              <div>
+                <img alt="moodKeywordImg" src={el[Object.keys(el)]} />
+                <span>{String(Object.keys(el)).toUpperCase()}</span>
+              </div>
+            ))}
           </div>
         </section>
         <section className="explanationInspiration">
@@ -85,18 +71,13 @@ export default class About extends Component {
           </div>
           <div className="inspirationImg">
             <img
-              alt=""
-              src="https://hince.co.kr/images/about/brand-image-01.jpg"
+              alt="inspirationImg"
+              src={AboutData.bottom_image?.slice(0, 1)}
             />
             <div>
-              <img
-                alt=""
-                src="https://hince.co.kr/images/about/brand-image-02.jpg"
-              />
-              <img
-                alt=""
-                src="https://hince.co.kr/images/about/brand-image-03.jpg"
-              />
+              {AboutData.bottom_image?.slice(1).map((el) => (
+                <img alt="inspirationImg" src={el} />
+              ))}
             </div>
           </div>
         </section>

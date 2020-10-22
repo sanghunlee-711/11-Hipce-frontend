@@ -49,7 +49,7 @@ class Checkout extends Component {
   };
 
   render() {
-    console.log(this.state.orderItem.map((el) => Number(el.price)));
+    // console.log(this.state.orderItem.map((el) => Number(el.price)));
     return (
       <>
         <Nav />

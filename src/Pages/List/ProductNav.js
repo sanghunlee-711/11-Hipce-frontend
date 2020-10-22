@@ -3,51 +3,32 @@ import "./ProductNav.scss";
 import { Link, withRouter } from "react-router-dom";
 
 class ProductNav extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      productNavData: [],
+    };
+  }
+
+  componentDidMount = () => {
+    fetch("/data/productMockdata.json")
+      .then((res) => res.json())
+      .then((res) => this.setState({ productNavData: res.productNav }));
+  };
+
   render() {
+    const {
+      state: { productNavData },
+    } = this;
     return (
       <div className="productNav">
-        <Link to="/list/category=lip">
-          <img
-            alt="productCategory"
-            src="https://hince.co.kr/assets/images/hince-category-lip.png"
-          />
-          <span>Lip</span>
-        </Link>
-        <Link to="/list/category=eye">
-          <img
-            alt="productCategory"
-            src="https://hince.co.kr/assets/images/hince-category-eye.png"
-          />
-          <span>Eye</span>
-        </Link>
-        <Link to="/list/category=cheek">
-          <img
-            alt="productCategory"
-            src="https://hince.co.kr/assets/images/hince-category-cheek.png"
-          />
-          <span>Cheek</span>
-        </Link>
-        <Link to="/list/category=nail">
-          <img
-            alt="productCategory"
-            src="https://hince.co.kr/assets/images/hince-category-nail.png"
-          />
-          <span>Nail</span>
-        </Link>
-        <Link to="/list/category=object">
-          <img
-            alt="productCategory"
-            src="https://hince.co.kr/assets/images/hince-category-object-sm.png"
-          />
-          <span>Object</span>
-        </Link>
-        <Link to="/list/category=edition">
-          <img
-            alt="productCategory"
-            src="https://hince.co.kr/assets/images/hince-category-edition.png"
-          />
-          <span>Edition</span>
-        </Link>
+        {productNavData.map(({ name, img_src }) => (
+          <Link to={`/list/category=${name}`}>
+            <img alt="productCategory" src={img_src} />
+            <span>{name.charAt(0).toUpperCase() + name.slice(1)}</span>
+          </Link>
+        ))}
       </div>
     );
   }

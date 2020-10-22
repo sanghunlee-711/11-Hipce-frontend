@@ -67,5 +67,31 @@
     { "color": "#b0718d", "name": "Purple", "id": 7 },
     { "color": "#b70316", "name": "Rose", "id": 8 },
     { "color": "#915f6d", "name": "Mauve", "id": 9 }
+  ],
+  "productNav": [
+    {
+      "name": "lip",
+      "img_src": "https://hince.co.kr/assets/images/hince-category-lip.png"
+    },
+    {
+      "name": "eye",
+      "img_src": "https://hince.co.kr/assets/images/hince-category-eye.png"
+    },
+    {
+      "name": "cheek",
+      "img_src": "https://hince.co.kr/assets/images/hince-category-cheek.png"
+    },
+    {
+      "name": "nail",
+      "img_src": "https://hince.co.kr/assets/images/hince-category-nail.png"
+    },
+    {
+      "name": "object",
+      "img_src": "https://hince.co.kr/assets/images/hince-category-object-sm.png"
+    },
+    {
+      "name": "edition",
+      "img_src": "https://hince.co.kr/assets/images/hince-category-edition.png"
+    }
   ]
 }

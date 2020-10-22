@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "./ProductFilter.scss";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 class ProductFilter extends Component {
   constructor() {
     super();
@@ -89,7 +89,7 @@ class ProductFilter extends Component {
     return (
       <div className="productFilter">
         <div className="productFilterName">
-          <h2></h2>
+          <h2>here</h2>
           <span
             onClick={() =>
               this.setState({ palleteDisplay: !palleteDisplay }, () =>

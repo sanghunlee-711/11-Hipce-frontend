@@ -13,7 +13,7 @@ class DetailMain extends Component {
   }
 
   componentDidMount = () => {
-    fetch("http://localhost:3000/data/data.json")
+    fetch("/data/data.json")
       .then((res) => res.json())
       .then((res) => {
         this.setState({

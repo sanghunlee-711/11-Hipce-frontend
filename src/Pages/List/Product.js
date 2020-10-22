@@ -5,7 +5,7 @@ import "./Product.scss";
 class Product extends Component {
   render() {
     const {
-      props: { mainImgSrc, subImgSrc, tag, name, price, id, index },
+      props: { mainImgSrc, subImgSrc, tag, name, price, id },
     } = this;
     return (
       <li className="Product" id={id}>

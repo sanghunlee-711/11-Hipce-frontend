@@ -93,5 +93,21 @@
       "name": "edition",
       "img_src": "https://hince.co.kr/assets/images/hince-category-edition.png"
     }
-  ]
+  ],
+  "aboutData": {
+    "video": "https://player.vimeo.com/external/310693190.hd.mp4?s=ec62f70ade026316f8ec3f7a3a6b5ff6e5566b4b&profile_id=174",
+    "product_picture": "https://hince.co.kr/assets/images/hince-brand-logo.png",
+    "explanation_Image": [
+      { "mood": "https://hince.co.kr/images/about/brand-slogan-01-mood.jpg" },
+      { "tone": "https://hince.co.kr/images/about/brand-slogan-02-tone.jpg" },
+      {
+        "attitude": "https://hince.co.kr/images/about/brand-slogan-03-attitude.jpg"
+      }
+    ],
+    "bottom_image": [
+      "https://hince.co.kr/images/about/brand-image-01.jpg",
+      "https://hince.co.kr/images/about/brand-image-02.jpg",
+      "https://hince.co.kr/images/about/brand-image-03.jpg"
+    ]
+  }
 }

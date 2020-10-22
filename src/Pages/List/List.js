@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import Nav from "../../Components/Nav";
 import ProductNav from "../List/ProductNav";
-import ProductFilter from "./ProductFilter";
 import Product from "./Product";
 import ProductListBottom from "../List/ProductListBottom";
 import Footer from "../../Components/Footer";
@@ -59,7 +58,7 @@ class List extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.message) {
-          console.log(res.message);
+          // console.log(res.message);
           alert("저장 완료");
           this.props.history.push("/shoppingbag");
         }
@@ -73,8 +72,10 @@ class List extends Component {
     return (
       <div className="List">
         <Nav />
-        <ProductNav newColors={newColors} />
-        <ProductFilter titleName={this.props.match.params.hello} />
+        <ProductNav
+          newColors={newColors}
+          titleName={this.props.match.params.hello}
+        />
         <div className="productListContainer">
           <ul className="productList">
             {newColors.map(

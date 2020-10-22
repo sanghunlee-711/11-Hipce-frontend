@@ -31,7 +31,7 @@ export default class Shoppingbag extends Component {
   }
 
   componentDidUpdate(prevPros, prevState) {
-    console.log("update?"); //조은님 이부분 무한렌더 되니까 조심해서 다뤄주세용
+    // console.log("update?"); //조은님 이부분 무한렌더 되니까 조심해서 다뤄주세용
     // 무한렌더를 막아주세요!!
     if (prevPros.pickItem !== this.state.prevPros)
       fetch(`${API}/orders`)
@@ -50,7 +50,7 @@ export default class Shoppingbag extends Component {
       return;
     }
 
-    console.log(item.id);
+    // console.log(item.id);
     fetch(`${API}/orders`, {
       method: "PATCH",
       body: JSON.stringify({
@@ -61,7 +61,7 @@ export default class Shoppingbag extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.message) {
-          console.log(res.message);
+          // console.log(res.message);
           alert("증가 완료");
         }
       });
@@ -82,7 +82,7 @@ export default class Shoppingbag extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.message) {
-          console.log(res.message);
+          // console.log(res.message);
           alert("증가 완료");
         }
       });
@@ -125,7 +125,7 @@ export default class Shoppingbag extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.message) {
-          console.log(res.message);
+          // console.log(res.message);
           alert("증가 완료");
         }
       });
@@ -152,11 +152,6 @@ export default class Shoppingbag extends Component {
   };
 
   render() {
-    console.log(
-      "Filtered",
-      this.state.pickItem.filter((el) => el.active)
-    );
-    console.log("thisisPickITem", this.state.pickItem);
     const {
       state: {
         emptyDisplay,

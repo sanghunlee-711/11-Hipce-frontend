@@ -30,27 +30,12 @@ export default class Shoppingbag extends Component {
       );
   }
 
-  componentDidUpdate(prevPros, prevState) {
-    // console.log("update?"); //조은님 이부분 무한렌더 되니까 조심해서 다뤄주세용
-    // 무한렌더를 막아주세요!!
-    if (prevPros.pickItem !== this.state.prevPros)
-      fetch(`${API}/orders`)
-        .then((res) => res.json())
-        .then((res) =>
-          this.setState({
-            pickItem: res.shoppingbag,
-            totalPrice: res.total_price,
-          })
-        );
-  }
-
   countPlus = (item, inDecrement, e) => {
     if (item.quantity >= 5) {
-      alert("더이상 못함");
+      alert("수량은 최대 5개 입니다.");
       return;
     }
 
-    // console.log(item.id);
     fetch(`${API}/orders`, {
       method: "PATCH",
       body: JSON.stringify({
@@ -61,7 +46,6 @@ export default class Shoppingbag extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.message) {
-          // console.log(res.message);
           alert("증가 완료");
         }
       });
@@ -69,7 +53,7 @@ export default class Shoppingbag extends Component {
 
   countMinus = (item, inDecrement) => {
     if (item.quantity <= 0) {
-      alert("더이상 못함");
+      alert("한개 이상의 수량을 선택해 주세요.");
       return;
     }
     fetch(`${API}/orders`, {
@@ -82,7 +66,6 @@ export default class Shoppingbag extends Component {
       .then((res) => res.json())
       .then((res) => {
         if (res.message) {
-          // console.log(res.message);
           alert("증가 완료");
         }
       });
